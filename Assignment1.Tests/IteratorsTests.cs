@@ -6,6 +6,7 @@ namespace Assignment1.Tests
 {
     public class IteratorsTests
     {
+
         [Fact]
         public void Return_Stream_Of_T_When_Given_Stream_Of_Stream_Of_T()
         {
@@ -31,11 +32,16 @@ namespace Assignment1.Tests
             int[] expected = {1, 3, 5, 7};
             
             // Act
-            Predicate<int> odd = Iterators.Odd;
+            Predicate<int> odd = Odd;
             IEnumerable<int> actual = Iterators.Filter(array, odd);
 
             // Assert
             Assert.Equal(expected, actual);
+        }
+
+        public static bool Odd(int i)
+        {
+            return i % 2 == 1;
         }
     }
 }

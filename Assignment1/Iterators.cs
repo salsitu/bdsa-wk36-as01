@@ -30,10 +30,5 @@ namespace Assignment1
                 }
             }
         }
-
-        public static bool Odd(int i)
-        {
-            return i % 2 == 1;
-        }
     }
 }
