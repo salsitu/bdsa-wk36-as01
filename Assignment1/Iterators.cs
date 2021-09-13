@@ -5,10 +5,6 @@ namespace Assignment1
 {
     public static class Iterators
     {
-        public static void Main(string[] args)
-        {
-            
-        }
         public static IEnumerable<T> Flatten<T>(IEnumerable<IEnumerable<T>> items)
         {
             foreach (var item in items)
