@@ -42,14 +42,12 @@ namespace Assignment1
 
         public static IEnumerable<string> InnerText(string html, string tag)
         {
-            string regEx = "([</]{1-2})"+tag+@"([.*?]>)(?<inner>.+)\1" + tag + @"\2";
+            string regEx = string.Format(@"<([{0}][^>]*)>(?<innerText>.+?)</{0}>", tag);
 
-            var matches = Regex.Matches(html, regEx);
-
-            foreach(Match match in matches)
+            foreach (Match match in Regex.Matches(html, regEx))
             {
                 GroupCollection group = match.Groups;
-                yield return group["inner"].Value;
+                yield return Regex.Replace(group["innerText"].Value, "<[^>]*>", "");
             }
         }
     }
